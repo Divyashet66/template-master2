@@ -22,12 +22,12 @@
         path: "{{ item }}"
         state: directory
       with_items:
-       - /var/lib/jenkins/jobs/springboot
-       - /var/lib/jenkins/jobs/springboot/build
+       - /var/lib/jenkins/jobs/php
+       - /var/lib/jenkins/jobs/php/build
 
     - name: Change permissions
       file:
-        path: /var/lib/jenkins/jobs/springboot
+        path: /var/lib/jenkins/jobs/php
         mode: '0777'
         recurse: yes
     - name: Make sure we have a 'jenkins' group
@@ -38,7 +38,7 @@
     - name: Copy file from local to remote server
       copy:
         src: nextBuildNumber
-        dest: /var/lib/jenkins/jobs/springboot/
+        dest: /var/lib/jenkins/jobs/php/
         mode: '0777'
 
 
@@ -46,7 +46,7 @@
     - name: Copy file from local to remote server
       copy:
         src: config.xml
-        dest: /var/lib/jenkins/jobs/springboot/
+        dest: /var/lib/jenkins/jobs/php/
         mode: '0777'
 
     - name: Restart Jenkins if required
