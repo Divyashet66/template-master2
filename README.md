@@ -1,4 +1,4 @@
 # note
 
 ## to run
-sh template-master1/run.sh
+sh template-master2/run.sh
